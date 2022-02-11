@@ -55,6 +55,7 @@ const data = {
 			"portrait": "MarcelNikolic.jpg"
 		}
 	],
+	
 	"media": [
 		{
 			"id": 342550,

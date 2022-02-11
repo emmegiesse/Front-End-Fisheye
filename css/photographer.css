@@ -2,10 +2,19 @@
     display: none;
 }
 
-.photograph-header {
+.photographer_header {
+    display: flex;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+}
+
+.photographer_image img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #dedede;
 }
 
 .contact_button {
