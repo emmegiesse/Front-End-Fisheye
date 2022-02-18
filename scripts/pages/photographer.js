@@ -16,9 +16,8 @@ const userPicDOM = photographerModel.getUserPicDOM();
 photographersPicture.appendChild(userPicDOM);
 
 const mediaSection = document.querySelector(".medias");
-
 medias.forEach((media) => {
-    const mediaModel = mediaFactory(media);
+    const mediaModel = mediaFactory(media, photographer.id);
     const mediaCardDOM = mediaModel.getMediaCardDOM();
     mediaSection.appendChild(mediaCardDOM);
 });
