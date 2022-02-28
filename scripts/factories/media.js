@@ -4,6 +4,7 @@ function mediaFactory(data, photographerId) {
 
 	function getMediaCardDOM() {
 		const article = document.createElement( 'article' );
+        article.className = "phMedia";
         let media;
         if (isVideo) {
             const videoURL = `assets/images/${photographerId}/${video}` ;
@@ -16,18 +17,22 @@ function mediaFactory(data, photographerId) {
             media.setAttribute("src", imageURL);
         }
         media.setAttribute("alt", title);
-        media.setAttribute("width", "200px");
+        media.setAttribute("width", "400px");
 		const pTitle = document.createElement( 'p' );
         pTitle.textContent = title;
         pTitle.className = 'pTitle';
 		const pLikes = document.createElement( 'p' );
         pLikes.textContent = likes;
         pLikes.className = 'pLikes';
-        const pHeart = document.createElement('button');                                                                                                      
+        const pHeart = document.createElement('button'); 
+        pHeart.className = 'heartBtn';
+        const iHeart = document.createElement('i');
+        iHeart.className = 'fas fa-regular fa-heart';                                                                            
         article.appendChild(media);
 		article.appendChild(pTitle);
 		article.appendChild(pLikes);
-        article.appendChild(pHeart);
+        pLikes.appendChild(pHeart);
+        pHeart.appendChild(iHeart);
 
         return (article);
     }

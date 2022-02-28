@@ -2,10 +2,14 @@
 <html>
 
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/homePage.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+  
     <title>Fisheye</title>
     <script src="data/photographers.js"></script>
   </head>
@@ -19,10 +23,10 @@
     </header>
 
     <main id="main">
-        <div class="photographer_section"></div>
+        <div class="photographer_section" aria-label="photographers"></div>
     </main>
 
-    <script src="scripts/factories/Photographer.js"></script>
+    <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/pages/index.js"></script>
     <script src="scripts/pages/photographer.js"></script>
   </body>

@@ -7,6 +7,7 @@ function photographerFactory(data) {
         const link = document.createElement('a');
         link.setAttribute('href', `./photographer.html?id=${id}`);
         const article = document.createElement( 'article' );
+        article.className= 'phArticle';
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", `Portait de ${name}`);
@@ -32,6 +33,7 @@ function photographerFactory(data) {
 
     function getUserInfoDOM() {
         const article = document.createElement( 'article' );
+        article.className = 'phInfo';
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         const h3 = document.createElement( 'h3' );
@@ -59,3 +61,4 @@ function photographerFactory(data) {
     return { name, picture, getUserCardDOM, getUserInfoDOM, getUserPicDOM}
 
 }
+

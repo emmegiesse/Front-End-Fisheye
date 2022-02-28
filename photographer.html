@@ -1,28 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/phPage.css" rel="stylesheet"/>
+    <link href="css/phFormModale.css" rel="stylesheet"/>
+    <link href="css/phLightboxModale.css" rel="stylesheet"/>
+    
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all" rel="stylesheet">
+    <link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all" rel="stylesheet">
+    <link href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all" rel="stylesheet">
+
     <title>Fisheye - photographe </title>
+
     <script src="data/photographers.js"></script>
   </head>
+
   <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
+    <!-- BANNER -->
+    <header class="banner">
+      <a href="index.html" title="HomePage">
+        <img src="assets/images/logo.png" class="logo" role="link" alt="FishEye Home Page"/>
+      </a>
     </header>
+
     <main id="main">
-      <div class="photographer_header"> 
+
+      <div class="photographer_card"> 
         <div class="photographer_section"></div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
         <div class="photographer_image"></div>
       </div>
-      <div class="medias"></div>
+
+      <section class="phMedias">
+        
+        <!-- DROPDOWN -->
+        <div class="dropdownMenu">
+          <span class="sortTitle">Trier par</span>
+          <div class="sortMenuDisplay">
+              <ul class="sortHidden" role="listbox">
+                <li id="pop" class="sortOption" role='option'>Popularité <span class="fas fa-chevron-down arrow-up-close"></span>
+                </li>
+              </ul>
+          </div>
+          <div class="sortMenuHidden">
+            <ul class="sortHidden" role="listbox">
+              <li id="popHidden" class="sortOption" role='option'>Popularité <span class="fas fa-chevron-up arrow-up-close"></span></li>
+              <li id="dateHidden" class="sortOption" role='option'>Date</li>
+              <li id="titleHidden" class="sortOption" role='option'>Tître</li>
+            </ul>
+            
+          </div>
+        </div>
+
+        <div class="medias"></div> 
+      </section>
+
     </main>
+
     <div id="contact_modal">
-			<div class="modal">
+			<div class="contactModal" role="dialog" aria-hidden="true" aria-label="contact-modal">
 				<header>
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
@@ -39,6 +81,7 @@
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/dropDown.js"></script>
   </body>
 </html>

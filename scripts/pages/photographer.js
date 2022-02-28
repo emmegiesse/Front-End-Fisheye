@@ -1,9 +1,10 @@
 //Mettre le code JavaScript lié à la page photographer.html
-const queryString = window.location.search
-const urlparams = new URLSearchParams (queryString)
+const queryString = window.location.search;
+const urlparams = new URLSearchParams (queryString);
 const id = urlparams.get ('id')
 const photographer = data.photographers.find ((el)=>el.id == id)
-const medias = data.media.filter ((el)=>el.photographerId == id)
+let medias = data.media.filter ((el)=>el.photographerId == id)
+medias.sort ( (a,b) => {return b.likes-a.likes})
 
 const photographerModel = photographerFactory(photographer);
 

@@ -1,0 +1,59 @@
+/* En tete */
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    overflow: hidden;
+    height: 90px;
+}
+
+h1 {
+    color: #901C1C;
+    margin-right: 100px;
+    font-size: 14px;
+    width: fit-content;
+}
+
+@media screen and (min-width: 1170px) {
+    h1 {
+        font-size: 1.8em;}
+
+    header {
+        margin-top: 0;}
+
+    header img {
+        width: 12.5rem;}
+}
+
+/* PHOTOGRAPHERS SECTION */
+.photographer_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+}
+
+.photographer_section article {
+    justify-self: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.photographer_section article h2 {
+    color: #D3573C;
+    font-size: 36px;
+}
+
+.photographer_section article img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #dedede;
+}
