@@ -26,11 +26,9 @@ function mediaFactory(data, photographerId) {
         
         const mediaText = document.createElement( 'div' );
         mediaText.className = 'mediaText';
-
 		const mediaTitle = document.createElement( 'h2' );
         mediaTitle.textContent = title;
         mediaTitle.className = 'mediaTitle';
-
 		const mediaLikes = document.createElement( 'div' );
         mediaLikes.className = 'mediaLikes';
 
@@ -46,6 +44,7 @@ function mediaFactory(data, photographerId) {
         iHeart.className = 'fas fa-regular fa-heart'; 
         iHeart.setAttribute("data-value", likes);
 
+        //hiérarchie
         article.appendChild(media);
         article.appendChild(mediaText);
         mediaText.appendChild(mediaTitle);

@@ -25,3 +25,7 @@ medias.forEach((media) => {
 
 const totalLikes = medias.reduce((previous, next) => previous + next.likes, 0);
 console.log(totalLikes);
+
+const modalHeader = document.querySelector(".contactModal");
+const modalPhNameDOM = photographerModel.getModalPhNameDOM();
+modalHeader.appendChild(modalPhNameDOM);

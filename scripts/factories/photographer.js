@@ -5,9 +5,10 @@ function photographerFactory(data) {
 
     // création de la fiche du photographe dans la page d'acceuil
     function getUserCardDOM() {
-         // article photographe
+        // article photographe
         const article = document.createElement( 'article' );
         article.className= 'phArticle';
+        article.ariaLabel= 'photgrapher profile';
         // lien photo img + nom h2 (ref 3 du brief)
         const phLink = document.createElement('a');
         phLink.setAttribute('href', `./photographer.html?id=${id}`);
@@ -44,8 +45,8 @@ function photographerFactory(data) {
         return (article);
     }
 
+    // création de la fiche du photographe dans la page du photographe
     function getUserInfoDOM() {
-        // création de la fiche du photographe dans la page du photographe
         const pagePhInfo = document.createElement( 'div' );
         pagePhInfo.className = 'pagePhInfo';
         // nom du photographe h1 (ref 2 du brief)
@@ -68,8 +69,8 @@ function photographerFactory(data) {
         return (pagePhInfo);
     }
 
+    // Photo de prfil du photographe dans la page du photographe 
     function getUserPicDOM() {
-        // Photo de prfil du photographe
         const pagePhPic = document.createElement( 'img' );
         pagePhPic.setAttribute("src", picture);
         pagePhPic.setAttribute("alt", `Portait de ${name}`);
