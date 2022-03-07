@@ -18,25 +18,41 @@ function mediaFactory(data, photographerId) {
         }
         media.setAttribute("alt", title);
         media.setAttribute("width", "400px");
-		const pTitle = document.createElement( 'p' );
-        pTitle.textContent = title;
-        pTitle.className = 'pTitle';
-		const pLikes = document.createElement( 'p' );
-        pLikes.textContent = likes;
-        pLikes.className = 'pLikes';
-        const pHeart = document.createElement('button'); 
-        pHeart.className = 'heartBtn';
+        
+        const mediaText = document.createElement( 'div' );
+        mediaText.className = 'mediaText';
+
+		const mediaTitle = document.createElement( 'h2' );
+        mediaTitle.textContent = title;
+        mediaTitle.className = 'mediaTitle';
+
+		const mediaLikes = document.createElement( 'div' );
+        mediaLikes.className = 'mediaLikes';
+
+        const phLikes = document.createElement( 'span' );
+        phLikes.className = 'phLikes';
+        const likeCounter = document.createElement( 'a' );
+        likeCounter.textContent = likes;
+        likeCounter.className = 'likeCounter';
+
+        const phHeart = document.createElement('button'); 
+        phHeart.className = 'heartBtn';
         const iHeart = document.createElement('i');
-        iHeart.className = 'fas fa-regular fa-heart';                                                                            
+        iHeart.className = 'fas fa-regular fa-heart'; 
+        iHeart.setAttribute("data-value", likes);
+
         article.appendChild(media);
-		article.appendChild(pTitle);
-		article.appendChild(pLikes);
-        pLikes.appendChild(pHeart);
-        pHeart.appendChild(iHeart);
+        article.appendChild(mediaText);
+        mediaText.appendChild(mediaTitle);
+        mediaText.appendChild(mediaLikes);
+        mediaLikes.appendChild(phLikes);
+        phLikes.appendChild(likeCounter);
+        mediaLikes.appendChild(phHeart);
+        phHeart.appendChild(iHeart);
 
         return (article);
     }
-
+    
 	return { getMediaCardDOM }
 
 }

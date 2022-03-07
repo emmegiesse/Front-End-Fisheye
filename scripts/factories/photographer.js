@@ -58,7 +58,17 @@ function photographerFactory(data) {
         return (article);
     }
 
-    return { name, picture, getUserCardDOM, getUserInfoDOM, getUserPicDOM}
+    function likesPriceDOM() {
+        const article = document.createElement( 'article' );
+        const likesBox = document.createElement( 'div' );
+        likesBox.textContent = 'img';
+
+        article.appendChild(likesBox);
+
+        return (article);
+    }
+
+    return { name, picture, getUserCardDOM, getUserInfoDOM, getUserPicDOM, likesPriceDOM}
 
 }
 

@@ -23,3 +23,5 @@ medias.forEach((media) => {
     mediaSection.appendChild(mediaCardDOM);
 });
 
+const totalLikes = medias.reduce((previous, next) => previous + next.likes, 0);
+console.log(totalLikes);
