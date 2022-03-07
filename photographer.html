@@ -22,7 +22,7 @@
   </head>
 
   <body>
-    <!-- BANNER -->
+    <!-- Header/Banner - logo avec lien vers la page d'acceuil -->
     <header class="banner">
       <a href="index.html" title="HomePage">
         <img src="assets/images/logo.png" class="logo" role="link" alt="FishEye Home Page"/>
@@ -31,15 +31,16 @@
 
     <main id="main">
 
+      <!-- Informations du photographe -->
       <div class="photographer_card"> 
         <div class="photographer_section"></div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
         <div class="photographer_image"></div>
       </div>
 
-      <section class="phMedias">
-        
-        <!-- DROPDOWN MENU-->
+      <!-- Section avec la galerie du photographe -->
+      <section class="phGallery">
+        <!-- Menu de tri avec dropdown-->
         <div class="dropdownMenu">
           <span class="sortTitle">Trier par</span>
           <div class="sortMenuDisplay">
@@ -54,11 +55,14 @@
               <li id="dateHidden" class="sortOption" role='option'>Date</li>
               <li id="titleHidden" class="sortOption" role='option'>Tître</li>
             </ul>
-            
           </div>
         </div>
-
+        <!-- Factory des medias, affichage de la gallerie -->
         <div class="medias"></div> 
+
+        <!-- Compteur des likes de la gallerie -->
+      
+      
       </section>
 
     </main>

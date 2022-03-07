@@ -3,72 +3,82 @@ function photographerFactory(data) {
 
     const picture = `assets/photographers/${portrait}`;
 
+    // création de la fiche du photographe dans la page d'acceuil
     function getUserCardDOM() {
-        const link = document.createElement('a');
-        link.setAttribute('href', `./photographer.html?id=${id}`);
+         // article photographe
         const article = document.createElement( 'article' );
         article.className= 'phArticle';
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture);
-        img.setAttribute("alt", `Portait de ${name}`);
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
-        const h3 = document.createElement( 'h3' );
-        h3.textContent = `${city}, ${country}`
-        const pTag = document.createElement( 'p' );
-        pTag.textContent = tagline;
-        pTag.className = 'tagline';
-        const pPrice = document.createElement( 'p' );
-        pPrice.textContent = `${price} euros`
-        pPrice.className = 'price';
-        link.appendChild(img);
-        link.appendChild(h2);
-        article.appendChild(link);
-        article.appendChild(h3);
-        article.appendChild(pTag);
-        article.appendChild(pPrice);
+        // lien photo img + nom h2 (ref 3 du brief)
+        const phLink = document.createElement('a');
+        phLink.setAttribute('href', `./photographer.html?id=${id}`);
+        phLink.className = 'phLink';
+        const phPic = document.createElement( 'img' );
+        phPic.setAttribute("src", picture);
+        phPic.setAttribute("alt", `Portait de ${name}`);
+        phPic.className = 'phPic';
+        const phName = document.createElement( 'h2' );
+        phName.textContent = name;
+        phName.className = 'phName';
+        // texte avec détails du photographe = ville + tagline + prix (ref 4 du brief)
+        const phText = document.createElement( 'div' );
+        phText.className = 'phText';
+        const phCity = document.createElement( 'h3' );
+        phCity.textContent = `${city}, ${country}`
+        phCity.className = 'phCity';
+        const phTagline = document.createElement( 'p' );
+        phTagline.textContent = tagline;
+        phTagline.className = 'phTagline';
+        const phPrice = document.createElement( 'p' );
+        phPrice.textContent = `${price} euros`
+        phPrice.className = 'phPrice';
 
+        //hiérarchie
+        article.appendChild(phLink)
+        phLink.appendChild(phPic);
+        phLink.appendChild(phName);
+        article.appendChild(phText);
+        phText.appendChild(phCity);
+        phText.appendChild(phTagline);
+        phText.appendChild(phPrice);
+        
         return (article);
     }
 
     function getUserInfoDOM() {
-        const article = document.createElement( 'article' );
-        article.className = 'phInfo';
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
-        const h3 = document.createElement( 'h3' );
-        h3.textContent = `${city}, ${country}`
-        const pTag = document.createElement( 'p' );
-        pTag.textContent = tagline;
-        pTag.className = 'tagline';
-        article.appendChild(h2);
-        article.appendChild(h3);
-        article.appendChild(pTag);
+        // création de la fiche du photographe dans la page du photographe
+        const pagePhInfo = document.createElement( 'div' );
+        pagePhInfo.className = 'pagePhInfo';
+        // nom du photographe h1 (ref 2 du brief)
+        const pagePhName = document.createElement( 'h1' );
+        pagePhName.textContent = name;
+        pagePhName.className = 'pagePhName';
+        // texte avec détails du photographe = ville + tagline (ref 3 du brief)
+        const pagePhCity = document.createElement( 'p' );
+        pagePhCity.textContent = `${city}, ${country}`
+        pagePhCity.className = 'pagePhCity';
+        const pagePhTagline = document.createElement( 'p' );
+        pagePhTagline.textContent = tagline;
+        pagePhTagline.className = 'pagePhTagline';
 
-        return (article);
+        //hiérarchie
+        pagePhInfo.appendChild(pagePhName);
+        pagePhInfo.appendChild(pagePhCity);
+        pagePhInfo.appendChild(pagePhTagline);
+
+        return (pagePhInfo);
     }
 
     function getUserPicDOM() {
-        const article = document.createElement( 'article' );
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture);
-        img.setAttribute("alt", `Portait de ${name}`);
-        article.appendChild(img);
+        // Photo de prfil du photographe
+        const pagePhPic = document.createElement( 'img' );
+        pagePhPic.setAttribute("src", picture);
+        pagePhPic.setAttribute("alt", `Portait de ${name}`);
+        pagePhPic.className = 'pagePhPic';
 
-        return (article);
+        return (pagePhPic);
     }
 
-    function likesPriceDOM() {
-        const article = document.createElement( 'article' );
-        const likesBox = document.createElement( 'div' );
-        likesBox.textContent = 'img';
-
-        article.appendChild(likesBox);
-
-        return (article);
-    }
-
-    return { name, picture, getUserCardDOM, getUserInfoDOM, getUserPicDOM, likesPriceDOM}
+    return { name, picture, getUserCardDOM, getUserInfoDOM, getUserPicDOM }
 
 }
 
