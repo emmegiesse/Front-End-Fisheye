@@ -5,24 +5,25 @@ function mediaFactory(data, photographerId) {
 	function getMediaCardDOM() {
         // création de la galerie dans la page du photographe
 		const article = document.createElement( 'article' );
-        article.className = "phMedia";
+        article.className = 'phMedia';
         // importation des images et des videos du photographe
         let media;
         if (isVideo) {
             const videoURL = `assets/images/${photographerId}/${video}` ;
             media = document.createElement( 'video' );
-            media.setAttribute("src", videoURL);
-            media.className = "phMediaVideo";
+            media.setAttribute('src', videoURL);
+            media.setAttribute('role', 'button');
+            media.className = 'phMediaVideo';
         }
         else {
             const imageURL = `assets/images/${photographerId}/${image}` ;
             media = document.createElement( 'img' );
-            media.setAttribute("src", imageURL);
-            media.className = "phMediaImage";
+            media.setAttribute('src', imageURL);
+            media.setAttribute('role', 'button');
+            media.className = 'phMediaImage';
         }
         media.setAttribute('href', `./photographer.html?id=${id}`);
-        media.setAttribute("alt", title);
-        media.setAttribute("width", "400px");
+        media.setAttribute('alt', title);
         
         const mediaText = document.createElement( 'div' );
         mediaText.className = 'mediaText';
