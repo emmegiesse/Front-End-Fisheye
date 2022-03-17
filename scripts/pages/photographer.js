@@ -16,15 +16,17 @@ const photographersPicture = document.querySelector(".photographer_image");
 const userPicDOM = photographerModel.getUserPicDOM();
 photographersPicture.appendChild(userPicDOM);
 
+const totalLikes = medias.reduce((previous, next) => previous + next.likes, 0);
+console.log(totalLikes);
+const counter = document.getElementById("counter");
+counter.innerHTML = totalLikes;
+
 const mediaSection = document.querySelector(".medias");
 medias.forEach((media) => {
     const mediaModel = mediaFactory(media, photographer.id);
     const mediaCardDOM = mediaModel.getMediaCardDOM();
     mediaSection.appendChild(mediaCardDOM);
 });
-
-const totalLikes = medias.reduce((previous, next) => previous + next.likes, 0);
-console.log(totalLikes);
 
 const modalHeader = document.querySelector(".contactModal");
 const modalPhNameDOM = photographerModel.getModalPhNameDOM();
