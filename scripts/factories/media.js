@@ -34,9 +34,9 @@ function mediaFactory(data, photographerId,medias,index) {
 		const mediaTitle = document.createElement( 'h2' );
         mediaTitle.textContent = title;
         mediaTitle.className = 'mediaTitle';
+
 		const mediaLikes = document.createElement( 'div' );
         mediaLikes.className = 'mediaLikes';
-
         const phLikes = document.createElement( 'span' );
         phLikes.className = 'phLikes';
         const likeCounter = document.createElement( 'span' );
@@ -55,9 +55,17 @@ function mediaFactory(data, photographerId,medias,index) {
             let tmpLike2 = parseInt(likeCounterTmp.innerHTML);
             tmpLike2 ++ ;
             likeCounterTmp.innerHTML = tmpLike2; 
+
+            let counterTemplate = `
+                <span id="counterTotalLikes">${tmpLike}</span>
+                <i class="fas fa-heart" aria-label='likes'></i>
+                <span class="">${price} €/ jour</span>
+                `
+                counter.innerHTML = counterTemplate;
         }
+
         const iHeart = document.createElement('i');
-        iHeart.className = 'fas fa-regular fa-heart'; 
+        iHeart.className = 'fas fa-light fa-heart'; 
         iHeart.setAttribute("data-value", likes);
 
         //hiérarchie

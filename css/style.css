@@ -1,29 +1,16 @@
-@import url("photographer.css");
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-weight: 400;
-}
-
-body {
-    font-family: "DM Sans", sans-serif;
-}
+@import url(https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap);
 
 a {
     text-decoration: none;
-    color: inherit;
 }
 
-.logo {
-    height: 50px;
-    margin-left: 100px;
+body {
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
-@media screen and (min-width: 375px){
-.logo {
-    height: 37px;}
+html {
+    font-family: 'DM Sans', sans-serif;
 }
 
 nav ul li:hover,
