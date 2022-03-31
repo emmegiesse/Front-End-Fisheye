@@ -1,28 +1,33 @@
-function mediaFactory(data, photographerId) {
+function mediaFactory(data, photographerId,medias,index) {
     const { title, image, video, likes, date, id, price } = data ;
     const isVideo = video != null;
 
 	function getMediaCardDOM() {
         // création de la galerie dans la page du photographe
-		const article = document.createElement( 'article' );
-        article.className = "phMedia";
+        const articlePh = document.createElement( 'article' );
+        articlePh.className = "phMediaElement";
+
         // importation des images et des videos du photographe
         let media;
         if (isVideo) {
             const videoURL = `assets/images/${photographerId}/${video}` ;
             media = document.createElement( 'video' );
             media.setAttribute("src", videoURL);
-            media.className = "phMediaVideo";
+            media.setAttribute("controls","controls");
         }
         else {
             const imageURL = `assets/images/${photographerId}/${image}` ;
             media = document.createElement( 'img' );
-            media.setAttribute("src", imageURL);
-            media.className = "phMediaImage";
+            media.setAttribute("src", imageURL);  
         }
-        media.setAttribute('href', `./photographer.html?id=${id}`);
+        const mediaLink = document.createElement( 'a' );
+        mediaLink.setAttribute('href', `#`);
+        media.className = "phMedia";
+        media.setAttribute('role', 'button');
         media.setAttribute("alt", title);
-        media.setAttribute("width", "400px");
+        media.onclick = function(event) {
+            (new Lightbox(medias,index))
+        }
         
         const mediaText = document.createElement( 'div' );
         mediaText.className = 'mediaText';
@@ -46,7 +51,6 @@ function mediaFactory(data, photographerId) {
             let tmpLike = parseInt(counter.innerHTML); 
             tmpLike ++ ;
             counter.innerHTML = tmpLike;
-            console.log(id);
             let likeCounterTmp = document.getElementById(`likeCounter_${id}`);
             let tmpLike2 = parseInt(likeCounterTmp.innerHTML);
             tmpLike2 ++ ;
@@ -57,8 +61,9 @@ function mediaFactory(data, photographerId) {
         iHeart.setAttribute("data-value", likes);
 
         //hiérarchie
-        article.appendChild(media);
-        article.appendChild(mediaText);
+        articlePh.appendChild(media);
+        articlePh.appendChild(mediaLink);
+        articlePh.appendChild(mediaText);
         mediaText.appendChild(mediaTitle);
         mediaText.appendChild(mediaLikes);
         mediaLikes.appendChild(phLikes);
@@ -66,9 +71,9 @@ function mediaFactory(data, photographerId) {
         mediaLikes.appendChild(phHeart);
         phHeart.appendChild(iHeart);
 
-        return (article);
+        return (articlePh);
     }
-    
+
 	return { getMediaCardDOM }
 
 }

@@ -91,20 +91,20 @@
 }  
 
 /* media */
-.medias {
+.mediaGallery {
     display: flex;
     flex-wrap: wrap;
     margin: 0px 100px;
 }
 
-.phMedia {
+.phMediaElement {
     width: 33%;
     height: 400px;
     margin-bottom: 20px;
     padding: 10px;
 }
 
-.phMedia img, .phMedia video {
+.phMediaElement img, .phMediaElement video {
     width: 100%;
     height: 90%;
     object-fit: cover;
@@ -117,4 +117,14 @@
     width: 200px;
     height: 50px;
     background-color: pink;
+}
+
+#galleryLightbox{
+    display: none;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    position: absolute;
+    top: 0;
+    left: 0;
 }

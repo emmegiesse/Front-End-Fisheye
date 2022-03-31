@@ -9,6 +9,7 @@
     <link href="css/phPage.css" rel="stylesheet"/>
     <link href="css/phFormModale.css" rel="stylesheet"/>
     <link href="css/phLightboxModale.css" rel="stylesheet"/>
+    <link href="css/style1.css" rel="stylesheet"/>
     
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -57,40 +58,99 @@
             </ul>
           </div>
         </div>
-        <!-- Factory des medias, affichage de la gallerie -->
-        <div class="medias"></div> 
+        <!-- Factory des mediaGallery, affichage de la gallerie -->
+        <div class="mediaGallery" aria-label='photographer works'></div> 
 
         <!-- Compteur des likes de la gallerie -->
-        <div id="counter">
-          
-        </div>>
-      
+        <div id="counter" aria-label="photographer likes and price"></div>>
       </section>
 
     </main>
 
-    <div id="contact_modal">
-			<div class="contactModal" role="dialog" aria-hidden="true" aria-label="contact-modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+<!-- Modale formulaire de contact -->
+<div id="contactModal" role="dialog" aria-label="contact me form" aria-labelledby="form-title"
+aria-hidden="true">
+  <form action="photographer-page.html" method="POST" id="contactForm">
+    
+    <!-- En tête formulaire de contact -->
+    <header aria-label="contact form header">
+      <h1 id="formTitle">
+        <span>Contactez-moi</span>
+        <span id="phFormName"></span>
+      </h1>
+      <button id="modalCloseBtn" type="button" title="Close form">
+        <span class="fas fa-times close-form-icon" aria-hidden="true"></span>
+      </button>
+    </header>
+      
+    <!--Formulaire - Prénom -->
+    <div class="formData" data-error="Vous devez entrer votre prénom." data-error-visible="false">
+      <label for="first-name" id="labelFirstName">Prénom</label>
+      <input name="first-name" id="formFirstName" aria-labelledby="label-firstname" placeholder="Prénom">
+    </div>
 
-    <script src="scripts/factories/photographer.js"></script>
-    <script src="scripts/factories/media.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/utils/dropdownSorting.js"></script>
-    <script src="scripts/utils/lightBox.js"></script>
-    <script src="scripts/utils/likesCounter.js"></script>
-    <script src="scripts/utils/contactForm.js"></script>
-  </body>
+    <!-- Formulaire - Nom -->
+    <div class="formData" data-error="Vous devez entrer votre nom." data-error-visible="false">
+      <label for="last-name" id="labelLastName">Nom</label>
+      <input name="last-name" id="formLastName" aria-labelledby="label-lastname" placeholder="Nom">
+    </div>
+
+    <!-- Formulaire - Email -->
+    <div class="formData" data-error="Vous devez entrer un email valide." data-error-visible="false">
+      <label for="email" id="labelEmail">Email</label>
+      <input type="email" name="email" id="email" aria-labelledby="label-email"
+          placeholder="exemple@email.com">
+    </div>
+
+    <!-- Formulaire - Message -->
+    <div class="formData" data-error="Vous devez entrer votre message." data-error-visible="false">
+      <label for="message" id="labelMessage">Votre message</label>
+      <textarea name="message" id="message" cols="20" rows="5" aria-labelledby="label-message"
+          placeholder="Votre message..."></textarea>
+    </div>
+
+    <!-- SUBMIT -->
+    <input type="button" value="Envoyer" class="formSubmit" title="Send">
+
+  </form>
+</div>
+
+<!-- 
+<div id="contact_modal">
+  <div class="contactModal" role="dialog" aria-hidden="true" aria-label="contact-modal">
+    <header>
+      <h2>Contactez-moi</h2>
+      <img src="assets/icons/close.svg" onclick="closeModal()" />
+    </header>
+    <form>
+      <div>
+        <label>Prénom</label>
+        <input />
+      </div>
+      <button class="contact_button">Envoyer</button>
+    </form>
+  </div>
+</div>
+
+-->
+
+  <!--LIGHTBOX-->
+  <aside id="galleryLightbox" aria-hidden="true">
+    <article id="lightbox" role='dialog'>
+        <span class="fas fa-times closeLightboxIcon" role="button" title="Close dialog"></span>
+        <span class="fas fa-chevron-left leftArrowLightbox" role="button" title="Previous image"></span>
+        <span class="fas fa-chevron-right rightArrowLightbox" role="button" title="Next image"></span>
+        <div id="galleryLightbox-media"></div>
+        <div id="galleryLightbox-name"></div>
+    </article>
+</aside>
+
+<script src="scripts/factories/photographer.js"></script>
+<script src="scripts/utils/lightBox.js"></script>
+<script src="scripts/factories/media.js"></script>
+<script src="scripts/pages/photographer.js"></script>
+<script src="scripts/utils/dropdownSorting.js"></script>
+<script src="scripts/utils/likesCounter.js"></script>
+<script src="scripts/utils/contactForm.js"></script>
+</body>
 </html>

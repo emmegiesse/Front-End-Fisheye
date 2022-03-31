@@ -25,12 +25,12 @@ function dateSort() {
     let dropdownHidden = document.getElementsByClassName("sortMenuHidden");
     dropdownHidden [0].style.display = "block";
     dropdown.style.display = "none";
-    medias = medias.sort ( (a,b) => {return new Date(a.date).getTime() - new Date(b.date).getTime()});
-    mediaSection.innerHTML = "";
-    medias.forEach((media) => {
+    mediaGallery = mediaGallery.sort ( (a,b) => {return new Date(a.date).getTime() - new Date(b.date).getTime()});
+    mediaGalleryection.innerHTML = "";
+    mediaGallery.forEach((media) => {
         const mediaModel = mediaFactory(media, photographer.id);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
-        mediaSection.appendChild(mediaCardDOM);
+        mediaGalleryection.appendChild(mediaCardDOM);
     });
 closeDropdown();
 }
@@ -43,12 +43,12 @@ function titleSort() {
     let dropdownHidden = document.getElementsByClassName("sortMenuHidden");
     dropdownHidden [0].style.display = "block";
     dropdown.style.display = "none";
-    medias = medias.sort ( (a,b) => {return a.title.localeCompare(b.title)})
-    mediaSection.innerHTML = "";
-    medias.forEach((media) => {
+    mediaGallery = mediaGallery.sort ( (a,b) => {return a.title.localeCompare(b.title)})
+    mediaGalleryection.innerHTML = "";
+    mediaGallery.forEach((media) => {
         const mediaModel = mediaFactory(media, photographer.id);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
-        mediaSection.appendChild(mediaCardDOM);
+        mediaGalleryection.appendChild(mediaCardDOM);
     });
 closeDropdown();
 }
@@ -61,12 +61,12 @@ function popSort() {
     let dropdownHidden = document.getElementsByClassName("sortMenuHidden");
     dropdownHidden [0].style.display = "block";
     dropdown.style.display = "none";
-    medias = medias.sort ( (a,b) => {return b.likes - a.likes})
-    mediaSection.innerHTML = "";
-    medias.forEach((media) => {
+    mediaGallery = mediaGallery.sort ( (a,b) => {return b.likes - a.likes})
+    mediaGalleryection.innerHTML = "";
+    mediaGallery.forEach((media) => {
         const mediaModel = mediaFactory(media, photographer.id);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
-        mediaSection.appendChild(mediaCardDOM);
+        mediaGalleryection.appendChild(mediaCardDOM);
     });
 closeDropdown();
 }

@@ -3,8 +3,8 @@ const queryString = window.location.search;
 const urlparams = new URLSearchParams (queryString);
 const id = urlparams.get ('id')
 const photographer = data.photographers.find ((el)=>el.id == id)
-let medias = data.media.filter ((el)=>el.photographerId == id)
-medias.sort ( (a,b) => {return b.likes-a.likes})
+let mediaGallery = data.media.filter ((el)=>el.photographerId == id)
+mediaGallery.sort ( (a,b) => {return b.likes-a.likes})
 
 const photographerModel = photographerFactory(photographer);
 
@@ -16,18 +16,14 @@ const photographersPicture = document.querySelector(".photographer_image");
 const userPicDOM = photographerModel.getUserPicDOM();
 photographersPicture.appendChild(userPicDOM);
 
-const totalLikes = medias.reduce((previous, next) => previous + next.likes, 0);
+const totalLikes = mediaGallery.reduce((previous, next) => previous + next.likes, 0);
 console.log(totalLikes);
 const counter = document.getElementById("counter");
 counter.innerHTML = totalLikes;
 
-const mediaSection = document.querySelector(".medias");
-medias.forEach((media) => {
-    const mediaModel = mediaFactory(media, photographer.id);
+const mediaGalleryection = document.querySelector(".mediaGallery");
+mediaGallery.forEach((media, index) => {
+    const mediaModel = mediaFactory(media, photographer.id,mediaGallery, index);
     const mediaCardDOM = mediaModel.getMediaCardDOM();
-    mediaSection.appendChild(mediaCardDOM);
-});
-
-const modalHeader = document.querySelector(".contactModal");
-const modalPhNameDOM = photographerModel.getModalPhNameDOM();
-modalHeader.appendChild(modalPhNameDOM);
+    mediaGalleryection.appendChild(mediaCardDOM);
+})

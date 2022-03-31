@@ -1,43 +1,47 @@
-function photographerFactory(data) {
-    const { name, portrait, id, city, country, tagline, price } = data ;
-
-    // récuperation du nom du photographe pour la modale
-    function getModalPhNameDOM() {
-        const modalPhName = document.createElement( 'h1' );
-        modalPhName.textContent = name;
-        modalPhName.className = 'modalPhName';
-
-        return (modalPhName);
-    }
-
-    return { getModalPhNameDOM }
-}
+const queryString = window.location.search;
+const urlparams = new URLSearchParams (queryString);
+const id = urlparams.get ('id')
+const photographer = data.photographers.find ((el)=>el.id == id)
+const phModalName = photographer.name
 
 
-
+// Récuperation elémént du formulaire pour console
+let form = document.getElementById('contactForm');
+const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
 
 // Ouvrir la modale en cliquant sur le buton "Contactez-moi"
 let modalDisplayBtn = document.getElementsByClassName('contact_button');
-modalDisplay.addEventListener('click',displayModal);
+modalDisplayBtn[0].addEventListener('click',displayModal);
 function displayModal() {
-    const modalDisplay = document.getElementById("contact_modal");
-	modalDisplay.style.display = "block";
+    const modalDisplay = document.getElementById("contactModal");
+    modalDisplay.style.display = "block";
 }
 
-//let modalCloseBtn = document.getElementsByClassName('close-form-icon');
-
-
-
+let modalCloseBtn = document.getElementById('modalCloseBtn');
+modalCloseBtn.addEventListener('click',closeModal);
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
+    const modal = document.getElementById("contactModal");
+    console.log ("test")
     modal.style.display = "none";
 }
 
+function consoleFormSubmit(firstName, lastName, email, message) {
+    console.group('Contact Message');
+    console.log('Prénom : ' + firstName.value);
+    console.log('Nom : ' + lastName.value);
+    console.log('Email : ' + email.value);
+    console.log('Message : ' + message.value);
+    console.groupEnd();
+}
 
-
-//let dropdown = document.getElementById("pop");
-//dropdown.addEventListener("click", displayDropdown);
-//function displayDropdown() {
-    //let dropdownOpen = document.getElementsByClassName("sortMenuHidden");
-    //dropdownOpen [0].style.display = "block";
-    //dropdown.style.display = "none";
+let modalSubmit = document.getElementsByClassName('formSubmit');
+modalSubmit[0].addEventListener('click',submitForm);
+function submitForm () {
+    let firstName = document.getElementById('formFirstName');
+    console.log(firstName)
+    let lastName = document.getElementById('formLastName');
+    let email = document.getElementById('email');
+    let message = document.getElementById('message');
+    consoleFormSubmit(firstName, lastName, email, message);
+    closeModal()
+}
