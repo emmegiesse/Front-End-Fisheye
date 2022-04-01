@@ -18,8 +18,10 @@ photographersPicture.appendChild(userPicDOM);
 
 const totalLikes = mediaGallery.reduce((previous, next) => previous + next.likes, 0);
 console.log(totalLikes);
-const counter = document.getElementById("counter");
+const counter = document.getElementById("counterTotalLikes");
 counter.innerHTML = totalLikes;
+const price = document.getElementById("phPrice"); 
+price.innerHTML = photographer.price;
 
 const mediaGalleryection = document.querySelector(".mediaGallery");
 mediaGallery.forEach((media, index) => {

@@ -44,24 +44,27 @@ function mediaFactory(data, photographerId,medias,index) {
         likeCounter.className = 'likeCounter';
         likeCounter.id = `likeCounter_${id}`;
 
-        const phHeart = document.createElement('button'); 
+        const phHeart = document.createElement('span'); 
         phHeart.className = 'heartBtn';
         phHeart.onclick = function(event) {
-            let counter = document.getElementById("counter"); 
+            let counter = document.getElementById("counterTotalLikes"); 
             let tmpLike = parseInt(counter.innerHTML); 
             tmpLike ++ ;
-            counter.innerHTML = tmpLike;
+            //counter.innerHTML = tmpLike;
+            counterTotalLikes.innerHTML = tmpLike;
             let likeCounterTmp = document.getElementById(`likeCounter_${id}`);
             let tmpLike2 = parseInt(likeCounterTmp.innerHTML);
             tmpLike2 ++ ;
             likeCounterTmp.innerHTML = tmpLike2; 
 
-            let counterTemplate = `
+
+
+            /*let counterTemplate = `
                 <span id="counterTotalLikes">${tmpLike}</span>
                 <i class="fas fa-heart" aria-label='likes'></i>
                 <span class="">${price} €/ jour</span>
                 `
-                counter.innerHTML = counterTemplate;
+                counter.innerHTML = counterTemplate;*/
         }
 
         const iHeart = document.createElement('i');
