@@ -27,6 +27,8 @@ function mediaFactory(data, photographerId,medias,index) {
         media.setAttribute("alt", title);
         media.onclick = function(event) {
             (new Lightbox(medias,index))
+            console.log(index)
+            console.log(medias)
         }
         
         const mediaText = document.createElement( 'div' );
@@ -56,15 +58,6 @@ function mediaFactory(data, photographerId,medias,index) {
             let tmpLike2 = parseInt(likeCounterTmp.innerHTML);
             tmpLike2 ++ ;
             likeCounterTmp.innerHTML = tmpLike2; 
-
-
-
-            /*let counterTemplate = `
-                <span id="counterTotalLikes">${tmpLike}</span>
-                <i class="fas fa-heart" aria-label='likes'></i>
-                <span class="">${price} €/ jour</span>
-                `
-                counter.innerHTML = counterTemplate;*/
         }
 
         const iHeart = document.createElement('i');

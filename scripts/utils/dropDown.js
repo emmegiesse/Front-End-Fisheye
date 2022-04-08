@@ -26,8 +26,9 @@ function dateSort() {
     mediaGallery = mediaGallery.sort ( (a,b) => {return new Date(a.date).getTime() - new Date(b.date).getTime()})
     console.log(mediaGallery);  
     mediaGalleryection.innerHTML = "";
-    mediaGallery.forEach((media) => {
-        const mediaModel = mediaFactory(media, photographer.id);
+    mediaGallery.forEach((media, index) => {
+        console.log(index)
+        const mediaModel = mediaFactory(media, photographer.id, mediaGallery, index);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
         mediaGalleryection.appendChild(mediaCardDOM);
     });
@@ -45,8 +46,8 @@ function titleSort() {
     mediaGallery = mediaGallery.sort ( (a,b) => {return a.title.localeCompare(b.title)})
     console.log(mediaGallery);  
     mediaGalleryection.innerHTML = "";
-    mediaGallery.forEach((media) => {
-        const mediaModel = mediaFactory(media, photographer.id);
+    mediaGallery.forEach((media, index) => {
+        const mediaModel = mediaFactory(media, photographer.id, mediaGallery, index);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
         mediaGalleryection.appendChild(mediaCardDOM);
     });
@@ -64,8 +65,8 @@ function popSort() {
     mediaGallery = mediaGallery.sort ( (a,b) => {return b.likes - a.likes})
     console.log(mediaGallery);  
     mediaGalleryection.innerHTML = "";
-    mediaGallery.forEach((media) => {
-        const mediaModel = mediaFactory(media, photographer.id);
+    mediaGallery.forEach((media, index) => {
+        const mediaModel = mediaFactory(media, photographer.id, mediaGallery, index);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
         mediaGalleryection.appendChild(mediaCardDOM);
     });

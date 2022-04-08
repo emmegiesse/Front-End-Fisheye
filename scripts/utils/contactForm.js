@@ -1,9 +1,12 @@
-const queryString = window.location.search;
+/*const queryString = window.location.search;
 const urlparams = new URLSearchParams (queryString);
 const id = urlparams.get ('id')
 const photographer = data.photographers.find ((el)=>el.id == id)
-const phModalName = photographer.name
+const phModalName = photographer.name*/
 
+console.log(photographer)
+const phFormName = document.getElementById ("phFormName"); 
+phFormName.innerHTML = photographer.name;
 
 // Récuperation elémént du formulaire pour console
 let form = document.getElementById('contactForm');

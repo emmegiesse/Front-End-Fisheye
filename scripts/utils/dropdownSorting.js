@@ -27,8 +27,8 @@ function dateSort() {
     dropdown.style.display = "none";
     mediaGallery = mediaGallery.sort ( (a,b) => {return new Date(a.date).getTime() - new Date(b.date).getTime()});
     mediaGalleryection.innerHTML = "";
-    mediaGallery.forEach((media) => {
-        const mediaModel = mediaFactory(media, photographer.id);
+    mediaGallery.forEach((media, index) => {
+        const mediaModel = mediaFactory(media, photographer.id, mediaGallery, index);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
         mediaGalleryection.appendChild(mediaCardDOM);
     });
