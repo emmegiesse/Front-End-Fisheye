@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/phPage.css" rel="stylesheet"/>
-    <link href="css/phFormModale.css" rel="stylesheet"/>
-    <link href="css/phLightboxModale.css" rel="stylesheet"/>
-    <link href="css/style1.css" rel="stylesheet"/>
-    
+    <link href="css/phPageBanner.css" rel="stylesheet"/>
+    <link href="css/phPageMedias.css" rel="stylesheet"/>
+    <link href="css/phPageForm.css" rel="stylesheet"/>
+
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all" rel="stylesheet">
     <link href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all" rel="stylesheet">
     <link href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all" rel="stylesheet">
 
-    <title>Fisheye - photographe </title>
+    <title>Fisheye - Page photographe </title>
 
     <script src="data/photographers.js"></script>
   </head>
@@ -44,17 +44,17 @@
         <!-- Menu de tri avec dropdown-->
         <div class="dropdownMenu">
           <span class="sortTitle">Trier par</span>
-          <div class="sortMenuDisplay">
-              <ul class="sortHidden" role="listbox">
-                <li id="pop" class="sortOption" role='option'><span id="sortName">Popularité</span><span class="fas fa-chevron-down arrow-up-close"></span>
+          <div class="sortMenuDisplay" role="navigation">
+              <ul class="sortHidden" aria-expanded="false">
+                <li id="pop" class="sortOption" aria-haspopup="listbox"><span id="sortName">Popularité</span><span class="fas fa-chevron-down arrow-up-close"></span>
                 </li>
               </ul>
           </div>
-          <div class="sortMenuHidden">
-            <ul class="sortHidden" role="listbox">
-              <li id="popHidden" class="sortOption" role='option'>Popularité <span class="fas fa-chevron-up arrow-up-close"></span></li>
-              <li id="dateHidden" class="sortOption" role='option'>Date</li>
-              <li id="titleHidden" class="sortOption" role='option'>Tître</li>
+          <div class="sortMenuHidden" role="navigation">
+            <ul class="sortHidden" aria-expanded="true">
+              <li id="popHidden" class="sortOption">Popularité <span class="fas fa-chevron-up arrow-up-close"></span></li>
+              <li id="dateHidden" class="sortOption">Date</li>
+              <li id="titleHidden" class="sortOption">Tître</li>
             </ul>
           </div>
         </div>
@@ -64,7 +64,7 @@
         <!-- Compteur des likes de la gallerie -->
         <div id="counter" aria-label="photographer likes and price">
           <span id="counterTotalLikes">0</span>
-          <i class="fas fa-heart" aria-label='likes'></i>
+          <i class="fas fa-heart" role="img" aria-label='likes'></i>
           <span><span id="phPrice"></span>€/ jour</span>
         </div>
       </section>
@@ -72,8 +72,7 @@
     </main>
 
 <!-- Modale formulaire de contact -->
-<div id="contactModal" role="dialog" aria-label="contact me form" aria-labelledby="form-title"
-aria-hidden="true">
+<div id="contactModal" role="dialog" aria-label="contact me form" aria-hidden="true">
   <form action="photographer-page.html" method="POST" id="contactForm">
     
     <!-- En tête formulaire de contact -->
@@ -88,28 +87,28 @@ aria-hidden="true">
     </header>
       
     <!--Formulaire - Prénom -->
-    <div class="formData" data-error="Vous devez entrer votre prénom." data-error-visible="false">
+    <div class="formData">
       <label for="first-name" id="labelFirstName">Prénom</label>
-      <input name="first-name" id="formFirstName" aria-labelledby="label-firstname" placeholder="Prénom">
+      <input name="first-name" id="formFirstName" placeholder="Prénom" aria-labelledby="labelFirstName">
     </div>
 
     <!-- Formulaire - Nom -->
-    <div class="formData" data-error="Vous devez entrer votre nom." data-error-visible="false">
+    <div class="formData">
       <label for="last-name" id="labelLastName">Nom</label>
-      <input name="last-name" id="formLastName" aria-labelledby="label-lastname" placeholder="Nom">
+      <input name="last-name" id="formLastName" placeholder="Nom" aria-labelledby="labelLastName">
     </div>
 
     <!-- Formulaire - Email -->
-    <div class="formData" data-error="Vous devez entrer un email valide." data-error-visible="false">
+    <div class="formData">
       <label for="email" id="labelEmail">Email</label>
-      <input type="email" name="email" id="email" aria-labelledby="label-email"
+      <input type="email" name="email" id="email" aria-labelledby="labelEmail"
           placeholder="exemple@email.com">
     </div>
 
     <!-- Formulaire - Message -->
-    <div class="formData" data-error="Vous devez entrer votre message." data-error-visible="false">
+    <div class="formData">
       <label for="message" id="labelMessage">Votre message</label>
-      <textarea name="message" id="message" cols="20" rows="5" aria-labelledby="label-message"
+      <textarea name="message" id="message" cols="20" rows="5" aria-labelledby="labelMessage"
           placeholder="Votre message..."></textarea>
     </div>
 
@@ -118,25 +117,6 @@ aria-hidden="true">
 
   </form>
 </div>
-
-<!-- 
-<div id="contact_modal">
-  <div class="contactModal" role="dialog" aria-hidden="true" aria-label="contact-modal">
-    <header>
-      <h2>Contactez-moi</h2>
-      <img src="assets/icons/close.svg" onclick="closeModal()" />
-    </header>
-    <form>
-      <div>
-        <label>Prénom</label>
-        <input />
-      </div>
-      <button class="contact_button">Envoyer</button>
-    </form>
-  </div>
-</div>
-
--->
 
   <!--LIGHTBOX-->
   <aside id="galleryLightbox" aria-hidden="true">

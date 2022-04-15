@@ -30,7 +30,7 @@ function photographerFactory(data) {
         phTagline.textContent = tagline;
         phTagline.className = 'phTagline';
         const phPrice = document.createElement( 'p' );
-        phPrice.textContent = `${price} euros`
+        phPrice.textContent = `${price}€/jour`
         phPrice.className = 'phPrice';
 
         //hiérarchie

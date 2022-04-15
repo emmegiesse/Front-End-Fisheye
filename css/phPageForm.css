@@ -1,0 +1,115 @@
+/* Mise en forme de la modale de contact photographe */
+#contactModal {
+    border: none;
+    border-radius: 0.2rem;
+    display: none;
+    left: 50%;
+    max-width: 42rem;
+    min-width: 25rem;
+    position: absolute;
+    right: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 11;
+    }
+
+.formData {
+    display: flex;
+    flex-direction: column;
+}
+    
+form {
+    background: #db8876;
+    border-radius: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2.2rem 2.2rem;
+}
+
+#formTitle {
+    color: black;
+    font-size: 3.5em;
+    font-weight: normal;
+    margin-top: 0.6rem;
+}
+
+#phFormName {
+        display: block;
+    }
+    
+#modalCloseBtn {
+    color: #fff;
+    font-size: 2em;
+    font-weight: normal;
+    margin-top: 0.6rem;
+}
+ 
+form .formSubmit {
+    align-self: center;
+    background: #901c1c;
+    color: #fff;
+    font-size: 1em;
+    height: 2.2rem;
+    margin-top: 1.6rem;
+    width: 10.6rem;
+}
+    
+form button {
+    background: none;
+    border: none;
+}
+    
+form header {
+    display: flex;
+    justify-content: space-between;
+    margin: -0.3rem 0.3rem 1.25rem 0;
+}
+    
+form input {
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 1.2em;
+    padding: 0.3rem;
+    height: 3.5rem;
+}
+
+form textarea {
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 1.2em;
+    padding: 0.3rem;
+    height: 10rem;
+}
+ 
+#labelFirstName, #labelLastName, #labelEmail, #labelMessage {
+    font-size: 2rem;
+    margin: .3rem 0 .2rem;
+    color:rgb(46, 41, 41);
+}
+
+@media (min-width: 600px) {
+    #contactModal {
+        top: 4.3rem;
+        width: 95%;
+    }
+    
+    form .close-form-icon {
+        font-size: 2.4em;
+    }
+    
+    form .formSubmit {
+        align-self: flex-start;
+        height: 4.4rem;
+    }
+    
+    form h1 {
+        font-size: 2.6em;
+    }
+    
+    form label,
+    form input,
+    form textarea {
+        font-size: 1.6em;
+    }
+}

@@ -1,4 +1,47 @@
-/* LIGHTBOX */
+/* Mise en forme des medias */
+.mediaGallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 1rem;
+}
+
+.phMediaElement {
+    width: 25%;
+    height: 360px;
+    margin-bottom: 1rem;
+    padding: 0.2rem;
+}
+
+.phMediaElement img, .phMediaElement video {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.mediaText {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0;
+}
+
+.mediaTitle, .likeCounter {
+    font-size: 1.4em;
+    font-weight: 400;
+    color:#901c1c;
+}
+
+.fa-heart{
+    cursor: pointer;
+    display: inline;
+    color:#901c1c;
+    padding-left: 0.6rem;
+    font-size: 1.2em;
+}
+
+/* Mise en forme de la lightbox */
 #lightbox {
     background-color: #fff;
     height: 90%;

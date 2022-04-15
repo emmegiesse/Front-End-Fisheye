@@ -1,20 +1,26 @@
-/* En tete */
+/* mise en forme en tete*/
 header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 4rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
     overflow: hidden;
-    height: 90px;
+    height: 10rem;
 }
 
-h1 {
+header h1 {
     color: #901C1C;
-    margin-right: 100px;
-    font-size: 14px;
+    font-size: 2.3rem;
+    font-weight: normal;
     width: fit-content;
+}
+
+header img {
+    width: 8rem;
 }
 
 @media screen and (min-width: 1170px) {
@@ -28,12 +34,12 @@ h1 {
         width: 12.5rem;}
 }
 
-/* PHOTOGRAPHERS SECTION */
+/* Mise en forme section des photographes */
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+    gap: 5rem 12rem;
+    margin-top: 1.5rem;
 }
 
 .photographer_section article {
@@ -45,9 +51,8 @@ h1 {
     text-align: center;
 }
 
-.photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
+.phLink {
+    text-decoration: none;
 }
 
 .photographer_section article img {
@@ -56,4 +61,34 @@ h1 {
     object-fit: cover;
     border-radius: 50%;
     background-color: #dedede;
+    box-shadow: 0 0 1.2rem rgba(134, 134, 134, 0.432);
+    margin-bottom: 0rem;
 }
+
+.phName {
+    color: #D3573C;
+    font-size: 2.3rem;
+    margin-bottom: 0.2rem;
+    font-weight: normal;
+}
+
+.phCity {
+    color: #901C1C;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.phTagline {
+    margin: 0;
+    font-size: 0.7rem;
+    font-weight: normal;
+}
+
+.phPrice {
+    color: #757575;
+    margin: 0;
+    font-size: 0.6rem;
+    font-weight: normal;
+}
+

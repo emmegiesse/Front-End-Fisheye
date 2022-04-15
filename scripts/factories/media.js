@@ -20,10 +20,9 @@ function mediaFactory(data, photographerId,medias,index) {
             media = document.createElement( 'img' );
             media.setAttribute("src", imageURL);  
         }
-        const mediaLink = document.createElement( 'a' );
-        mediaLink.setAttribute('href', `#`);
+        const mediaLink = document.createElement( 'span' );
         media.className = "phMedia";
-        media.setAttribute('role', 'button');
+        media.setAttribute("role", "button");
         media.setAttribute("alt", title);
         media.onclick = function(event) {
             (new Lightbox(medias,index))
