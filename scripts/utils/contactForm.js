@@ -1,10 +1,3 @@
-/*const queryString = window.location.search;
-const urlparams = new URLSearchParams (queryString);
-const id = urlparams.get ('id')
-const photographer = data.photographers.find ((el)=>el.id == id)
-const phModalName = photographer.name*/
-
-console.log(photographer)
 const phFormName = document.getElementById ("phFormName"); 
 phFormName.innerHTML = photographer.name;
 
@@ -24,7 +17,6 @@ let modalCloseBtn = document.getElementById('modalCloseBtn');
 modalCloseBtn.addEventListener('click',closeModal);
 function closeModal() {
     const modal = document.getElementById("contactModal");
-    console.log ("test")
     modal.style.display = "none";
 }
 
@@ -37,11 +29,11 @@ function consoleFormSubmit(firstName, lastName, email, message) {
     console.groupEnd();
 }
 
+//console.log au click sur "envoyer"
 let modalSubmit = document.getElementsByClassName('formSubmit');
 modalSubmit[0].addEventListener('click',submitForm);
 function submitForm () {
     let firstName = document.getElementById('formFirstName');
-    console.log(firstName)
     let lastName = document.getElementById('formLastName');
     let email = document.getElementById('email');
     let message = document.getElementById('message');

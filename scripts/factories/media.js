@@ -1,5 +1,5 @@
 function mediaFactory(data, photographerId,medias,index) {
-    const { title, image, video, likes, date, id, price } = data ;
+    const { title, image, video, likes, date, id, price } = data;
     const isVideo = video != null;
 
 	function getMediaCardDOM() {
@@ -10,33 +10,31 @@ function mediaFactory(data, photographerId,medias,index) {
         // importation des images et des videos du photographe
         let media;
         if (isVideo) {
-            const videoURL = `assets/images/${photographerId}/${video}` ;
+            const videoURL = `assets/images/${photographerId}/${video}`;
             media = document.createElement( 'video' );
             media.setAttribute("src", videoURL);
             media.setAttribute("controls","controls");
         }
         else {
-            const imageURL = `assets/images/${photographerId}/${image}` ;
+            const imageURL = `assets/images/${photographerId}/${image}`;
             media = document.createElement( 'img' );
             media.setAttribute("src", imageURL);  
         }
-        const mediaLink = document.createElement( 'span' );
+        const mediaLink = document.createElement( 'span' ); //access : lien image - ouvre la vue lightbox
         media.className = "phMedia";
         media.setAttribute("role", "button");
         media.setAttribute("alt", title);
         media.onclick = function(event) {
             (new Lightbox(medias,index))
-            console.log(index)
-            console.log(medias)
         }
         
-        const mediaText = document.createElement( 'div' );
+        const mediaText = document.createElement( 'div' ); //access : texte statique de chaque média
         mediaText.className = 'mediaText';
 		const mediaTitle = document.createElement( 'h2' );
         mediaTitle.textContent = title;
         mediaTitle.className = 'mediaTitle';
-
-		const mediaLikes = document.createElement( 'div' );
+ 
+		const mediaLikes = document.createElement( 'div' ); //access : icone likes image statique 
         mediaLikes.className = 'mediaLikes';
         const phLikes = document.createElement( 'span' );
         phLikes.className = 'phLikes';
@@ -51,7 +49,6 @@ function mediaFactory(data, photographerId,medias,index) {
             let counter = document.getElementById("counterTotalLikes"); 
             let tmpLike = parseInt(counter.innerHTML); 
             tmpLike ++ ;
-            //counter.innerHTML = tmpLike;
             counterTotalLikes.innerHTML = tmpLike;
             let likeCounterTmp = document.getElementById(`likeCounter_${id}`);
             let tmpLike2 = parseInt(likeCounterTmp.innerHTML);

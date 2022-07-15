@@ -9,19 +9,20 @@ function photographerFactory(data) {
         const article = document.createElement( 'article' );
         article.className= 'phArticle';
         article.ariaLabel= 'photgrapher profile';
-        // lien photo img + nom h2 (ref 3 du brief)
-        const phLink = document.createElement('a');
+        
+        const phLink = document.createElement('a'); // access : lien photo img + nom h2 
         phLink.setAttribute('href', `./photographer.html?id=${id}`);
+        phLink.setAttribute("alt", `${name}`);
         phLink.className = 'phLink';
         const phPic = document.createElement( 'img' );
         phPic.setAttribute("src", picture);
-        phPic.setAttribute("alt", `Portait de ${name}`);
+        phPic.setAttribute("alt", `portrait de ${name}`);
         phPic.className = 'phPic';
         const phName = document.createElement( 'h2' );
         phName.textContent = name;
         phName.className = 'phName';
-        // texte avec détails du photographe = ville + tagline + prix (ref 4 du brief)
-        const phText = document.createElement( 'div' );
+        
+        const phText = document.createElement( 'div' ); // texte statique avec détails du photographe = ville + slogan + prix 
         phText.className = 'phText';
         const phCity = document.createElement( 'h3' );
         phCity.textContent = `${city}, ${country}`
@@ -49,12 +50,12 @@ function photographerFactory(data) {
     function getUserInfoDOM() {
         const pagePhInfo = document.createElement( 'div' );
         pagePhInfo.className = 'pagePhInfo';
-        // nom du photographe h1 (ref 2 du brief)
-        const pagePhName = document.createElement( 'h1' );
+        
+        const pagePhName = document.createElement( 'h1' ); // access : texte statique nom du photographe h1
         pagePhName.textContent = name;
         pagePhName.className = 'pagePhName';
-        // texte avec détails du photographe = ville + tagline (ref 3 du brief)
-        const pagePhCity = document.createElement( 'p' );
+        
+        const pagePhCity = document.createElement( 'p' ); // access : texte statique 
         pagePhCity.textContent = `${city}, ${country}`
         pagePhCity.className = 'pagePhCity';
         const pagePhTagline = document.createElement( 'p' );
@@ -69,11 +70,11 @@ function photographerFactory(data) {
         return (pagePhInfo);
     }
 
-    // Photo de prfil du photographe dans la page du photographe 
+    // Photo de profil du photographe dans la page du photographe 
     function getUserPicDOM() {
-        const pagePhPic = document.createElement( 'img' );
+        const pagePhPic = document.createElement( 'img' ); // access : image statique 
         pagePhPic.setAttribute("src", picture);
-        pagePhPic.setAttribute("alt", `Portait de ${name}`);
+        pagePhPic.setAttribute("alt", `${name}`);
         pagePhPic.className = 'pagePhPic';
 
         return (pagePhPic);
